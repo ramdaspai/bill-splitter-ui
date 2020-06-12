@@ -39,7 +39,7 @@ import { TransactionAddComponent } from './transaction/transaction-add/transacti
     AddRowDirective
   ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     FormsModule,
     ReactiveFormsModule,
     MenubarModule,

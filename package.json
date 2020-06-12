@@ -3,11 +3,14 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "node server.js",
+    "start": "ng serve",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "dev:ssr": "ng run bill-splitter-app:serve-ssr",
+    "serve:ssr": "node dist/bill-splitter-app/server/main.js",
+    "build:ssr": "ng build --prod && ng run bill-splitter-app:server:production"
   },
   "private": true,
   "dependencies": {

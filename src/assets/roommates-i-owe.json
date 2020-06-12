@@ -1,0 +1,67 @@
+[
+  {
+      "id": "5edc7916d35336654d79cf1c",
+      "category": "Grocery",
+      "details": "Namdharis",
+      "date": "2020-06-03T18:30:00.000+00:00",
+      "totalAmount": 4000.0,
+      "transactionBy": "5ed66990cc4add1e39be486b",
+      "lineItems": [
+          {
+              "id": "5ed668fccc4add1e39be4869",
+              "name": "Ram",
+              "amount": 3000.0
+          },
+          {
+              "id": "5ed66990cc4add1e39be486b",
+              "name": "Nikki",
+              "amount": 1000.0
+          }
+      ]
+  },
+  {
+      "id": "5edc7f1f4289cf3fb1b80798",
+      "category": "Food",
+      "details": "Lunch",
+      "date": "2020-06-02T18:30:00.000+00:00",
+      "totalAmount": 3000.0,
+      "transactionBy": "5ed66990cc4add1e39be486b",
+      "lineItems": [
+          {
+              "id": "5ed668fccc4add1e39be4869",
+              "name": "Ram",
+              "amount": 1000.0
+          },
+          {
+              "id": "5ed66990cc4add1e39be486b",
+              "name": "Nikki",
+              "amount": 1000.0
+          },
+          {
+              "id": "5ed66a07cc4add1e39be486c",
+              "name": "Ajit",
+              "amount": 1000.0
+          }
+      ]
+  },
+  {
+      "id": "5edc81f74289cf3fb1b8079a",
+      "category": "Food",
+      "details": "Sunday Breakfast",
+      "date": "2020-06-03T18:30:00.000+00:00",
+      "totalAmount": 2000.0,
+      "transactionBy": "5ed66990cc4add1e39be486b",
+      "lineItems": [
+          {
+              "id": "5ed668fccc4add1e39be4869",
+              "name": "Ram",
+              "amount": 1900.0
+          },
+          {
+              "id": "5ed66990cc4add1e39be486b",
+              "name": "Nikki",
+              "amount": 100.0
+          }
+      ]
+  }
+]

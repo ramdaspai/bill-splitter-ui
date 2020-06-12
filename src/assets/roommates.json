@@ -1,0 +1,23 @@
+[
+  {
+      "id": "5ed5e0eecac1e318608dfc26",
+      "name": "Ramdas Pai",
+      "gender": "Male",
+      "phone": "9000010345",
+      "transactions": []
+  },
+  {
+      "id": "5ed5e0eecac1e318608dfc27",
+      "name": "Nikki Scott",
+      "gender": "Female",
+      "phone": "7484670987",
+      "transactions": []
+  },
+  {
+      "id": "5ed5e0eecac1e318608dfc28",
+      "name": "Dexter",
+      "gender": "Male",
+      "phone": "1234640546",
+      "transactions": []
+  }
+]

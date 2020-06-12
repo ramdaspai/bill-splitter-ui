@@ -1,0 +1,52 @@
+[
+  {
+      "id": "5edc78f9d35336654d79cf1b",
+      "category": "Food",
+      "details": "Dinner",
+      "date": "2020-06-01T18:30:00.000+00:00",
+      "totalAmount": 5000.0,
+      "transactionBy": "5ed668fccc4add1e39be4869",
+      "lineItems": [
+          {
+              "id": "5ed66990cc4add1e39be486b",
+              "name": "Nikki",
+              "amount": 2500.0
+          }
+      ]
+  },
+  {
+      "id": "5edc7996d35336654d79cf1d",
+      "category": "Travel",
+      "details": "Air Tickets to Bali",
+      "date": "2020-06-04T18:30:00.000+00:00",
+      "totalAmount": 40000.0,
+      "transactionBy": "5ed668fccc4add1e39be4869",
+      "lineItems": [
+          {
+              "id": "5ed66990cc4add1e39be486b",
+              "name": "Nikki",
+              "amount": 30000.0
+          }
+      ]
+  },
+  {
+      "id": "5edc7f3c4289cf3fb1b80799",
+      "category": "Food",
+      "details": "Lunch",
+      "date": "2020-06-02T18:30:00.000+00:00",
+      "totalAmount": 3000.0,
+      "transactionBy": "5ed668fccc4add1e39be4869",
+      "lineItems": [
+          {
+              "id": "5ed66990cc4add1e39be486b",
+              "name": "Nikki",
+              "amount": 1000.0
+          },
+          {
+              "id": "5ed66a07cc4add1e39be486c",
+              "name": "Ajit",
+              "amount": 500.0
+          }
+      ]
+  }
+]

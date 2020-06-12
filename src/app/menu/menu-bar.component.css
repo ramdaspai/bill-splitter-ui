@@ -1,0 +1,17 @@
+::ng-deep.ui-menubar .ui-menubar-root-list {
+  padding-left: 13em !important;
+}
+
+img#logo {
+  position:absolute;
+  left:0;
+  padding-left: 5px;
+}
+
+::ng-deep.ui-menubar .ui-menuitem-link.ui-menuitem-link-active .ui-menuitem-text.ui-menuitem-text {
+  color: greenyellow;
+}
+
+::ng-deep body .ui-menubar .ui-menuitem-link .ui-menuitem-text {
+   color: white;
+}

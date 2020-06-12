@@ -1,0 +1,7 @@
+::ng-deep.ui-card-body {
+  background-color: #1fc997;
+}
+
+::ng-deep.ui-card-body {
+  color: white;
+}

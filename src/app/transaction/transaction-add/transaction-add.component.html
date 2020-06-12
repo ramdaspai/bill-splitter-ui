@@ -1,0 +1,135 @@
+<div class="ui-grid" style="padding-left: 80px;">
+  <div class="ui-grid-col-12">
+    <h3>Add New Transaction</h3>
+  </div>
+</div>
+<br>
+<p-toast [style]="{ marginTop: '80px' }"></p-toast>
+<p-panel [style]="{ width: '90%', paddingLeft: '80px' }">
+  <div class="ui-grid" style="padding-left: 80px;">
+    <div class="ui-grid-col-12" style="padding-bottom: 10px;">
+      <div class="ui-grid-col-2">
+        <label for="expensecategory" ui-grid>Expense Category: </label>
+      </div>
+      <div class="ui-grid-col-6">
+        <p-dropdown
+          [(ngModel)]="selectedCategory"
+          [options]="categories"
+          placeholder="Select a category"
+          optionLabel="label">
+        </p-dropdown>
+        <p-message severity="warn" text="Expense Category is required" *ngIf="!selectedCategory"></p-message>
+      </div>
+    </div>
+    <div class="ui-grid-col-12" style="padding-bottom: 10px;">
+      <div class="ui-grid-col-2">
+        <label ui-grid>Expense Details: </label>
+      </div>
+      <div class="ui-grid-col-8">
+        <textarea id="expensedetails"
+            [(ngModel)]="expenseDetails"
+            placeholder="Enter Expense Details"
+            type="text"
+            pInputTextarea
+            rows="6"
+            cols="40">
+        </textarea>
+        <p-message severity="warn" text="Expense Details is required" *ngIf="!expenseDetails"></p-message>
+      </div>
+    </div>
+    <div class="ui-grid-col-12" style="padding-bottom: 10px;">
+      <div class="ui-grid-col-2">
+        <label for="transactiondate" ui-grid>Transaction Date: </label>
+      </div>
+      <div class="ui-grid-col-6">
+        <p-calendar [(ngModel)]="transactionDate" [showIcon]="true" [maxDate]="dateTime"></p-calendar>
+        <p-message severity="warn" text="Transaction Date is required" *ngIf="!transactionDate"></p-message>
+      </div>
+    </div>
+    <div class="ui-grid-col-12" style="padding-bottom: 10px;">
+      <div class="ui-grid-col-2">
+        <label for="totalamount" ui-grid>Total Amount: </label>
+      </div>
+      <div class="ui-grid-col-6">
+        <p-inputNumber
+          mode="currency"
+          currency="INR"
+          [(ngModel)]="totalAmt"
+          currencyDisplay="code"
+          locale="en-IN"></p-inputNumber>
+          <p-message severity="warn" text="Total Amount is required" *ngIf="!totalAmt"></p-message>
+      </div>
+    </div>
+    <div class="ui-grid-col-12" style="padding-bottom: 10px;">
+      <div class="ui-grid-col-2">
+        <label for="splitEqual" ui-grid>Split Equally: </label>
+      </div>
+      <div class="ui-grid-col-6">
+        <p-inputSwitch [(ngModel)]="splitEqual"></p-inputSwitch>
+      </div>
+    </div>
+    <div class="ui-grid-col-12" style="padding-bottom: 10px;" *ngIf="!splitEqual">
+      <div class="ui-grid-col-2">
+        &nbsp;
+      </div>
+      <div class="ui-grid-col-10">
+        <p-table #dt [value]="roomMates2" dataKey="id"
+          editMode="row" [style]="{ width: '80%' }">
+          <ng-template pTemplate="header">
+              <tr>
+                  <th> Name </th>
+                  <th> Amount </th>
+                  <th> &nbsp; </th>
+              </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-rowData let-editing="editing" let-ri="rowIndex">
+            <tr [pEditableRow]="rowData">
+              <td>
+                <p-dropdown
+                  [options]="roomMateNames"
+                  [(ngModel)]="rowData.name"
+                  [style]="{'width':'100%'}">
+                </p-dropdown>
+              </td>
+              <td>
+                <p-inputNumber
+                  mode="currency" currency="INR"
+                  currencyDisplay="code"
+                  [(ngModel)]="rowData.amount"
+                  locale="en-IN">
+                </p-inputNumber>
+              </td>
+              <td>
+                <button pButton type="button"
+                  pCancelEditableRow icon="pi pi-times"
+                  class="ui-button-danger"
+                  style="margin-right: .5em"
+                  (click)="onRowEditDelete(ri)">
+                </button>
+              </td>
+            </tr>
+          </ng-template>
+        </p-table>
+      </div>
+      <div class="ui-grid-col-10" style="padding-top: 10px; padding-left: 17%;">
+        <button type="button"
+          pButton
+          icon="pi pi-plus"
+          pAddRow [table]="dt" [newRow]="newRow()"
+          style="color: white; background-color: rgb(25, 189, 25);"></button>
+      </div>
+    </div>
+    <div class="ui-grid-col-12" style="padding-bottom: 10px;">
+      <div class="ui-grid-col-2">
+        &nbsp;
+      </div>
+      <div class="ui-grid-col-2">
+        <button type="button" class="ui-button-success" pButton label="Save Expense"
+          style="color: black; background-color: yellowgreen;" (click)="onSubmit()" [disabled]="!isSubmit()"></button>
+      </div>
+      <div class="ui-grid-col-2">
+        <button type="button" [disabled]="this.editFlow" class="ui-button" pButton (click)="reset()" label="Reset"></button>
+      </div>
+    </div>
+  </div>
+</p-panel>

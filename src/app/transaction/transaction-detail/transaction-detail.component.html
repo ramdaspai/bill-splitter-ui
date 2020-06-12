@@ -1,0 +1,65 @@
+<div class="ui-grid">
+  <div class="ui-grid-col-12" style="padding-left: 80px;">
+    <h3>Transactions</h3>
+  </div>
+</div>
+<div class="ui-grid">
+  <div class="ui-grid-col-12" style="padding-left: 80px;">
+    <p-panel header="Ram (+44-7405512042)" [style]="{ width: '90%' }">
+      <p-table [columns]="cols" [value]="userExpenses" dataKey="id">
+        <ng-template pTemplate="header" let-columns>
+          <tr>
+            <th style="width: 3em;background-color: yellowgreen;"></th>
+            <th *ngFor="let col of columns" [pSortableColumn]="col.field" style="background-color: yellowgreen;">
+                {{ col.header }}
+                <p-sortIcon
+                  [field]="col.field"
+                  ariaLabel="Activate to sort"
+                  ariaLabelDesc="Activate to sort in descending order"
+                  ariaLabelAsc="Activate to sort in ascending order">
+                </p-sortIcon>
+            </th>
+        </ng-template>
+        <ng-template pTemplate="body" let-rowData let-expanded="expanded" let-columns="columns">
+          <tr>
+              <td>
+                  <a href="#" [pRowToggler]="rowData">
+                      <i [ngClass]="expanded ? 'pi pi-minus' : 'pi pi-plus'"></i>
+                  </a>
+              </td>
+              <td>{{ rowData.transactedRoommate.name }}&nbsp;({{ rowData.transactedRoommate.phone }})</td>
+              <td>{{ rowData.category }}</td>
+              <td>{{ rowData.date | date : 'MM/dd/yyyy hh:mm a'  }}</td>
+              <td>₹ {{ rowData.totalAmount }}</td>
+              <td>
+                <button pButton type="button" icon="pi pi-pencil" class="ui-button-info" style="margin-right: .5em" (click)="editTransaction(rowData)"></button>
+              </td>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="rowexpansion" let-rowData let-columns="columns">
+          <tr>
+            <td [attr.colspan]="columns.length + 1">
+                <div class="p-grid -fluid" style="font-size:16px;color: white;">
+                    <div class="p-col-12 p-md-4" style="text-align:left">
+                      <p-card header={{rowData.details}} styleClass="ui-card-shadow">
+                        <div>
+                          <h4>Participants</h4>
+                          <hr>
+                          <div>
+                            <table>
+                              <tr *ngFor="let participant of rowData.lineItems">
+                                <td style="padding-bottom: 10px;">{{ participant.name }}</td>
+                                <td style="padding-bottom: 10px;">{{ participant.amount }}</td>
+                              </tr>
+                            </table>
+                          </div>
+                        </div>
+                      </p-card>
+                    </div>
+                </div>
+            </td>
+          </tr>
+        </ng-template>
+      </p-table>
+    </p-panel>
+</div>

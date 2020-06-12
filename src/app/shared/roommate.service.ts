@@ -10,7 +10,7 @@ export class RoommateService {
   constructor(private http: HttpClient) {}
 
   getRoommates() {
-    return this.http.get('http://localhost:8080/api/roommates')
+    return this.http.get('https://bill-splitter-services.herokuapp.com/api/roommates')
                 .toPromise()
                 .then(res => {
                   // console.log(res);
@@ -19,15 +19,15 @@ export class RoommateService {
   }
 
   updateRoommates(roommates: Roommate[]): Observable<any> {
-    return this.http.post('http://localhost:8080/api/roommates/update', roommates);
+    return this.http.post('https://bill-splitter-services.herokuapp.com/api/roommates/update', roommates);
   }
 
   deleteRoommates(roommates: Roommate[]): Observable<any> {
-    return this.http.post('http://localhost:8080/api/roommates/delete', roommates);
+    return this.http.post('https://bill-splitter-services.herokuapp.com/api/roommates/delete', roommates);
   }
 
   searchByPhone(phone: string) {
-    return this.http.get<Roommate>(`http://localhost:8080/api/roommates/${phone}`)
+    return this.http.get<Roommate>(`https://bill-splitter-services.herokuapp.com/api/roommates/${phone}`)
           .toPromise()
           .then(
             (response) => {

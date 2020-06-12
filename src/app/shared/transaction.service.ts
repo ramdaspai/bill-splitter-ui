@@ -11,11 +11,11 @@ export class TransactionService {
 
     addTransaction(expense: Expense): Observable<any> {
         // console.log('expense: ' + JSON.stringify(expense));
-        return this.http.post('http://localhost:8080/api/expense/creation', expense);
+        return this.http.post('https://bill-splitter-services.herokuapp.com/api/expense/creation', expense);
     }
 
     getReceivables(transactionBy: string) {
-      return this.http.get<Payment[]>(`http://localhost:8080/api/expenses/receivables/${transactionBy}`)
+      return this.http.get<Payment[]>(`https://bill-splitter-services.herokuapp.com/api/expenses/receivables/${transactionBy}`)
                 .toPromise()
                 .then(res => {
                   console.log(res);
@@ -24,7 +24,7 @@ export class TransactionService {
     }
 
     getPayables(transactionBy: string) {
-      return this.http.get<Payment[]>(`http://localhost:8080/api/expenses/payables/${transactionBy}`)
+      return this.http.get<Payment[]>(`https://bill-splitter-services.herokuapp.com/api/expenses/payables/${transactionBy}`)
                 .toPromise()
                 .then(res => {
                   console.log(res);
@@ -33,7 +33,7 @@ export class TransactionService {
     }
 
     getUserExpenses(userId: string) {
-      return this.http.get<Expense[]>(`http://localhost:8080/api/expenses/${userId}`)
+      return this.http.get<Expense[]>(`https://bill-splitter-services.herokuapp.com/api/expenses/${userId}`)
                 .toPromise()
                 .then(
                   (response) => {

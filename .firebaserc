@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "bill-splitter-app": {
+      "hosting": {
+        "bill-splitter-app": [
+          "bill-splitter-app"
+        ]
+      }
+    }
+  }
+}

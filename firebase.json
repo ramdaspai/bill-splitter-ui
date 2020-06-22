@@ -1,0 +1,19 @@
+{
+  "hosting": [
+    {
+      "target": "bill-splitter-app",
+      "public": "dist/bill-splitter-app/browser",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ]
+    }
+  ]
+}

@@ -69,38 +69,28 @@ export class MyRoomMatesComponent implements OnInit {
   }
 
   async saveRoommates() {
-    let errorMsg = '';
     if (this.roomMates2 && this.roomMates2.length > 6) {
       this.messageService.add({ severity: 'warn', summary: 'Error', detail: 'Maximum of 6 Roommates can be added.' });
       return ;
     }
-    await this.roommateService.updateRoommates(this.roomMates2)
-        .subscribe(
-          (response) => {
-            return response;
-          },
-          (error) => {
-            errorMsg = error.error.message;
-          }
-        );
 
-    if (this.roomMatesToDelete) {
-      await this.roommateService.deleteRoommates(this.roomMatesToDelete)
-          .subscribe(
-            (response) => {
-              return response;
-            },
-            (error) => {
-              errorMsg = error.error.message;
-            }
-          );
-    }
-    if (errorMsg) {
-      this.messageService.add({ severity: 'error', summary: 'Error', detail: errorMsg });
-    } else {
+    try {
+      let update = await this.roommateService.updateRoommates(this.roomMates2).toPromise();
+      if (this.roomMatesToDelete) {
+        let save = await this.roommateService.deleteRoommates(this.roomMatesToDelete).toPromise();
+      }
       this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Roommate data persisted to DB.' });
+
+    } catch (err) {
+      if (err.error) {
+        this.messageService.add({ severity: 'error', summary: 'Error', detail: err.error.message });
+      } else {
+        this.messageService.add({ severity: 'error', summary: 'Error', detail: err.message });
+      }
+    } finally {
+      this.roomMatesToDelete = null;
+      this.submitted = false;
     }
-    this.roomMatesToDelete = null;
-    this.submitted = false;
+
   }
 }

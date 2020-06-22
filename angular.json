@@ -178,6 +178,7 @@
           "options": {}
         }
       }
-    }},
+    }
+  },
   "defaultProject": "bill-splitter-app"
 }

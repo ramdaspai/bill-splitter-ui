@@ -1,4 +1,3 @@
-import { Observable } from 'rxjs';
 import { Roommate } from './roommate.model';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
@@ -18,11 +17,11 @@ export class RoommateService {
                 });
   }
 
-  updateRoommates(roommates: Roommate[]): Observable<any> {
+  updateRoommates(roommates: Roommate[]) {
     return this.http.post('https://bill-splitter-services.herokuapp.com/api/roommates/update', roommates);
   }
 
-  deleteRoommates(roommates: Roommate[]): Observable<any> {
+  deleteRoommates(roommates: Roommate[]) {
     return this.http.post('https://bill-splitter-services.herokuapp.com/api/roommates/delete', roommates);
   }
 
